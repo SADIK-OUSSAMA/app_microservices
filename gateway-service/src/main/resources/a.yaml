@@ -12,3 +12,4 @@ spring:
           predicates:
             Path= /api/products/**
 
+
