@@ -5,3 +5,5 @@
 <img width="1920" height="987" alt="eureka" src="https://github.com/user-attachments/assets/5c413653-1f9a-4d5f-94c3-a22284306c7b" />
 <img width="1115" height="990" alt="CUSTOMER5SERVICE" src="https://github.com/user-attachments/assets/191badc1-c99e-4a3e-a1c6-92f509bd89e8" />
 <img width="1152" height="988" alt="INVENTORY-SERVICE" src="https://github.com/user-attachments/assets/28cc842c-3506-446f-8ea6-876bae48514b" />
+<img width="612" height="986" alt="bills" src="https://github.com/user-attachments/assets/301cb197-62d2-4dc2-930d-06d0ba3e0bad" />
+<img width="827" height="987" alt="BILLING-SERVICE" src="https://github.com/user-attachments/assets/4a09ba78-7898-4645-9567-0aa662c92142" />
