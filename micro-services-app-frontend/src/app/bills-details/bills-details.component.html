@@ -1,0 +1,77 @@
+<div class="page-header" *ngIf="billDetails">
+    <h2><i class="bi bi-receipt me-2"></i>Bill Details #{{billId}}</h2>
+    <a routerLink="/bills" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left"></i> Back to Bills
+    </a>
+</div>
+
+<!-- Loading State -->
+<div class="spinner-container" *ngIf="!billDetails">
+    <div class="spinner"></div>
+</div>
+
+<div *ngIf="billDetails">
+    <!-- Customer Card -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="bi bi-person me-2"></i>Customer Information
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="mb-1 text-muted">Customer ID</p>
+                    <p class="mb-0"><span class="badge badge-primary">#{{billDetails.customer?.id}}</span></p>
+                </div>
+                <div class="col-md-4">
+                    <p class="mb-1 text-muted">Name</p>
+                    <p class="mb-0"><strong>{{billDetails.customer?.name}}</strong></p>
+                </div>
+                <div class="col-md-4">
+                    <p class="mb-1 text-muted">Email</p>
+                    <p class="mb-0">{{billDetails.customer?.email}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Items -->
+    <div class="card">
+        <div class="card-header">
+            <i class="bi bi-box me-2"></i>Product Items
+        </div>
+        <div class="table-container" style="border: none; border-radius: 0;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Unit Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pi of billDetails.productItems">
+                        <td>
+                            <code class="text-muted" style="font-size: 0.75rem;">{{pi.productId | slice:0:8}}...</code>
+                        </td>
+                        <td><strong>{{pi.product?.name}}</strong></td>
+                        <td><span class="price">{{pi.unitPrice | currency}}</span></td>
+                        <td><span class="quantity">{{pi.quantity}}</span></td>
+                        <td><span class="price">{{pi.unitPrice * pi.quantity | currency}}</span></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="text-end">
+                            <strong style="font-size: 1.1rem;">Grand Total:</strong>
+                        </td>
+                        <td>
+                            <strong class="price" style="font-size: 1.25rem;">{{calculateTotal() | currency}}</strong>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

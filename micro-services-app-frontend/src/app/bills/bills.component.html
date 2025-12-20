@@ -1,0 +1,55 @@
+<div class="page-header">
+    <h2>
+        <i class="bi bi-receipt me-2"></i>
+        <span *ngIf="customerId">Bills for Customer #{{customerId}}</span>
+        <span *ngIf="!customerId">All Bills</span>
+    </h2>
+</div>
+
+<!-- Loading State -->
+<div class="spinner-container" *ngIf="!bills">
+    <div class="spinner"></div>
+</div>
+
+<!-- Empty State -->
+<div class="empty-state" *ngIf="bills && bills.length === 0">
+    <i class="bi bi-receipt-cutoff"></i>
+    <h3>No Bills Found</h3>
+    <p *ngIf="customerId">This customer has no bills yet</p>
+    <p *ngIf="!customerId">No bills have been created yet</p>
+</div>
+
+<!-- Bills Table -->
+<div class="table-container" *ngIf="bills && bills.length > 0">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Bill ID</th>
+                <th>Date</th>
+                <th>Customer ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of bills">
+                <td>
+                    <span class="badge badge-primary">#{{b.id}}</span>
+                </td>
+                <td>
+                    <i class="bi bi-calendar3 me-2 text-muted"></i>
+                    {{b.billingDate | date:'medium'}}
+                </td>
+                <td>
+                    <span class="badge badge-success">#{{b.customerId}}</span>
+                </td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="btn btn-sm btn-primary" (click)="handleBillDetails(b)">
+                            <i class="bi bi-eye me-1"></i> View Details
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
