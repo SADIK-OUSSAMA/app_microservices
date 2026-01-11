@@ -59,6 +59,12 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- Spring AI Document Readers for RAG -->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-tika-document-reader</artifactId>
+        </dependency>
+
         <!-- Tests -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
