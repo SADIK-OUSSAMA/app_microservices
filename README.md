@@ -15,5 +15,5 @@
 <img src="screenshots/front3.png">
 <img src="screenshots/front4.png">
 <img src="screenshots/telegrambot.png">
-<img src ="keycloak-client.png">
-<img src ="keycloak-realm.png">
+<img src ="screenshots/keycloak-client.png">
+<img src ="screenshots/keycloak-realm.png">
